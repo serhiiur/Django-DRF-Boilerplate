@@ -12,4 +12,4 @@ echo "Creating default admin profile ..."
 python manage.py createsu
 
 echo "Running the application ..."
-python -m gunicorn --bind :8000 main.wsgi
+python -m gunicorn -c gunicorn.conf.py main.wsgi
