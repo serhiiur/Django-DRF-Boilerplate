@@ -1,6 +1,6 @@
 [project]
-name = "django-aws-beanstalk-api"
-version = "0.1.0"
+name = "django-drf-boilerplate"
+version = "0.4.0"
 requires-python = ">=3.12.0"
 dependencies = [
     "django-environ>=0.12.0",
