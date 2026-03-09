@@ -1,7 +1,8 @@
-import secrets
+from pathlib import Path
 
-from main.env import BASE_DIR, env
+from main.env import env
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [
   "localhost",
   "127.0.0.1",
