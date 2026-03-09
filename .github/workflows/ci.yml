@@ -28,9 +28,6 @@ jobs:
         with:
           version: "0.7.13"
 
-      - name: Create sample config file
-        run: cp ./config/.env.example ./config/.env
-
       - name: Install dependencies
         run: uv sync --all-groups
 
