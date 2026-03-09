@@ -15,6 +15,7 @@ Production-ready Django + Django REST Framework boilerplate focused on fast API 
 - Integration with [drf-spectacular](https://github.com/tfranzel/drf-spectacular) for OpenAPI schema generation and interactive API docs
 - Integration with [django-unfold](https://github.com/unfoldadmin/django-unfold) for a modernized admin UI
 - Integration with [Gunicorn](https://github.com/benoitc/gunicorn) for production-ready WSGI server
+- Integration with [Python-Json-Logger](https://github.com/madzak/python-json-logger) for structured logging in JSON format
 - Integration with [Faker](https://github.com/joke2k/faker) to ensure random data generation for testing
 - Basic CI pipeline using on Github Actions
 - Basic logging configuration with console and file handlers
