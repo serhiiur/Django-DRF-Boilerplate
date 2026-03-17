@@ -7,7 +7,7 @@ INSTALLED_APPS.extend(
     "silk",
     "debug_toolbar",
     "django_extensions",
-  ]
+  ],
 )
 
 # DebugToolbarMiddleware should be placed as early as possible

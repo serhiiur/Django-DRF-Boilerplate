@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand
 class Command(BaseCommand):
   """Custom command to create a superuser with default credentials."""
 
-  def handle(self, *args: Any, **options: Any) -> None:  # noqa: ARG002
+  def handle(self, *args: Any, **options: Any) -> None:
     """Create a superuser with the provided username and email.
 
     NOTE: password is optional and read from DJANGO_ADMIN_PASSWORD

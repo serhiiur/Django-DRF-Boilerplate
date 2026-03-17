@@ -49,7 +49,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):  # type: ignore[misc, type-arg]
           "is_superuser",
           "groups",
           "user_permissions",
-        )
+        ),
       },
     ),
     (
