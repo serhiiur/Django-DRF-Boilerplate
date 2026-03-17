@@ -3,33 +3,29 @@ name = "django-drf-boilerplate"
 version = "0.5.0"
 requires-python = ">=3.12.0"
 dependencies = [
-    "django-environ>=0.12.0",
-    "django-redis>=6.0.0",
-    "django-unfold>=0.79.0",
-    "djangorestframework>=3.16.1",
-    "drf-spectacular>=0.29.0",
-    "gevent>=25.9.1",
-    "gunicorn>=23.0.0",
-    "psycopg[binary]>=3.3.3",
-    "python-json-logger>=4.0.0",
-    "redis[hiredis]>=7.2.0",
+  "django-environ>=0.12.0",
+  "django-redis>=6.0.0",
+  "django-unfold>=0.79.0",
+  "djangorestframework>=3.16.1",
+  "drf-spectacular>=0.29.0",
+  "gevent>=25.9.1",
+  "gunicorn>=23.0.0",
+  "psycopg[binary]>=3.3.3",
+  "python-json-logger>=4.0.0",
+  "redis[hiredis]>=7.2.0",
 ]
 
 [dependency-groups]
 dev = [
-    "django-debug-toolbar>=6.2.0",
-    "django-extensions>=4.1",
-    "django-silk>=5.4.3",
+  "django-debug-toolbar>=6.2.0",
+  "django-extensions>=4.1",
+  "django-silk>=5.4.3",
 ]
-test = [
-    "mypy>=1.19.0",
-    "ruff>=0.14.8",
-    "faker>=38.2.0",
-]
+test = ["mypy>=1.19.0", "ruff>=0.14.8", "faker>=38.2.0"]
 
 stubs = [
-    "django-stubs[compatible-mypy]>=5.2.8",
-    "djangorestframework-stubs[compatible-mypy]>=3.16.6",
+  "django-stubs[compatible-mypy]>=5.2.8",
+  "djangorestframework-stubs[compatible-mypy]>=3.16.6",
 ]
 
 [tool.ruff]
@@ -37,20 +33,47 @@ target-version = "py312"
 exclude = [".venv"]
 lint.extend-select = ["ALL"]
 lint.ignore = [
-  "ANN401",
-  "COM812",
-  "D100",
-  "D104",
-  "D106",
-  "D204",
+  "D100", # undocumented-public-module
+  "D104", # undocumented-public-package
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"src/manage.py" = ["ANN201", "EM101", "PLC0415", "TRY003"]
-"src/*/migrations/*" = ["E501", "Q000", "RUF012", "I001", "D101"]
-"src/*/tests/*" = ["D102", "S101"]
-"src/main/django/*" = ["E402", "F403", "F405"] # allow wildcard imports
-"src/main/settings/*" = ["E402", "F403", "F405"] # allow wildcard imports
+"src/manage.py" = [
+  "EM101",   # raw-string-in-exception
+  "PLC0415", # import-outside-top-level
+  "TRY003",  # raise-vanilla-args
+]
+"src/main/{django/*,settings/*}" = [
+  "E402", # module-import-not-at-top-of-file
+  "F403", # undefined-local-with-import-star
+  "F405", # undefined-local-with-import-star-usage
+]
+"src/*/management/*.py" = [
+  "ANN401", # allow-Any-type
+  "ARG002", # unused-method-argument
+]
+"src/*/migrations/*" = [
+  "E501",   # line-too-long
+  "Q000",   # bad-quotes-inline-string
+  "RUF012", # mutable-class-default 
+  "I001",   # unsorted-imports
+  "D101",   # undocumented-public-class
+]
+"src/*/tests/*" = [
+  "D102", # undocumented-public-method
+  "S101", # usage-of-assert-statement
+]
+"src/*/{models,serializers}.py" = [
+  "D106", # undocumented-public-nested-class
+]
+"src/*/apps.py" = [
+  "F401", # unused-import
+]
+"src/*/signals.py" = [
+  "ARG001", # unused-function-argument
+  "FBT001", # boolean-type-hint-positional-argument
+]
+
 
 [tool.mypy]
 python_version = "3.12"
