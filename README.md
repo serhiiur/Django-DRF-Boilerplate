@@ -24,9 +24,9 @@ Production-ready Django + Django REST Framework boilerplate focused on fast API 
 
 ## Requirements
 
-- Python: *>=3.12*
+- Python: *>=3.12,<3.13*
 - Package/dependency manager: *uv*
-- Container runtime (optional): Docker + Docker Compose
+- Container runtime (optional): Docker + Docker Compose (1.28.0+)
 
 
 ## Settings and configuration
