@@ -62,7 +62,7 @@ Once the <ins>./config/.env</ins> file is created, you can adjust the values of 
 | CACHE_URL | `http://localhost:6379` | Cache connection URL |
 | OPENAPI_TITLE | `Django Boilerplate` | title of the application for OpenAPI documentation |
 | OPENAPI_DESCRIPTION | `Django Boilerplate Application` | description of the application for OpenAPI documentation |
-| OPENAPI_VERSION | `0.5.0` | Version of the application for OpenAPI documentation |
+| OPENAPI_VERSION | `0.6.0` | Version of the application for OpenAPI documentation |
 | GUNICORN_WORKERS | *(2 x $num_cores) + 1* | Number of worker processes |
 | GUNICORN_WORKER_CLASS | `gevent` | Worker class type |
 | GUNICORN_WORKER_CONNECTIONS | `1000` | Maximum number of simultaneous clients |
