@@ -23,10 +23,10 @@ dev = [
   "django-silk>=5.4.3",
 ]
 test = [
-    "mypy>=1.19.0",
-    "ruff>=0.14.8",
-    "faker>=38.2.0",
-    "pytest-django>=4.12.0",
+  "mypy>=1.19.0",
+  "ruff>=0.14.8",
+  "faker>=38.2.0",
+  "pytest-django>=4.12.0",
 ]
 
 stubs = [
@@ -87,6 +87,17 @@ strict = true
 exclude = [".venv"]
 files = "src/"
 plugins = ["mypy_django_plugin.main"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "main.django.test"
+python_files = ["test_*.py"]
+addopts = """
+  --durations=10
+  --durations-min=0.1
+  --verbose
+  --maxfail=1
+"""
+filterwarnings = ["ignore::DeprecationWarning"]
 
 [tool.django-stubs]
 django_settings_module = "main.django.test"
