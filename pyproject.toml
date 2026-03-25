@@ -22,7 +22,12 @@ dev = [
   "django-extensions>=4.1",
   "django-silk>=5.4.3",
 ]
-test = ["mypy>=1.19.0", "ruff>=0.14.8", "faker>=38.2.0"]
+test = [
+    "mypy>=1.19.0",
+    "ruff>=0.14.8",
+    "faker>=38.2.0",
+    "pytest-django>=4.12.0",
+]
 
 stubs = [
   "django-stubs[compatible-mypy]>=5.2.8",
