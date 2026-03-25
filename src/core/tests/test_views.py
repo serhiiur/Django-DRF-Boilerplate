@@ -1,25 +1,31 @@
+from typing import TYPE_CHECKING
+
 from django.conf import settings
 from django.urls import reverse
+from pytest_django.asserts import assertTemplateUsed
 from rest_framework import status
-from rest_framework.test import APITestCase
+
+if TYPE_CHECKING:
+  from django.test.client import Client
 
 
-class TestCoreViews(APITestCase):
-  """Tests views of the core app."""
+def test_health(client: "Client") -> None:
+  url = reverse("health")
+  resp = client.get(url)
+  assert resp.status_code == status.HTTP_200_OK
+  assert resp.json() == {"response": "ok"}
 
-  def test_health(self) -> None:
-    url = reverse("health")
-    resp = self.client.get(url)
-    assert resp.status_code == status.HTTP_200_OK
-    assert resp.data.get("response") == "ok"
 
-  def test_version(self) -> None:
-    url = reverse("version")
-    resp = self.client.get(url)
-    assert resp.status_code == status.HTTP_200_OK
-    assert resp.data.get("version") == settings.SPECTACULAR_SETTINGS["VERSION"]
+def test_version(client: "Client") -> None:
+  url = reverse("version")
+  resp = client.get(url)
+  assert resp.status_code == status.HTTP_200_OK
+  assert resp.json() == {"version": settings.SPECTACULAR_SETTINGS["VERSION"]}
 
-  def test_index(self) -> None:
-    url = reverse("index")
-    resp = self.client.get(url)
-    assert resp.status_code == status.HTTP_200_OK
+
+def test_index(client: "Client") -> None:
+  url = reverse("index")
+  resp = client.get(url)
+  assert resp.status_code == status.HTTP_200_OK
+  assertTemplateUsed(resp, "index.html")
+
