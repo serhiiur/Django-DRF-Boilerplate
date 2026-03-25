@@ -164,3 +164,4 @@ After running the application, you can access the following endpoints:
 - [Django REST Framework](https://github.com/encode/django-rest-framework)
 - [Django Styleguide](https://github.com/HackSoftware/Django-Styleguide?tab=readme-ov-file#settings)
 - [Gunicorn Settings](https://gunicorn.org/reference/settings/)
+- [Pytest-Django](https://github.com/pytest-dev/pytest-django)
