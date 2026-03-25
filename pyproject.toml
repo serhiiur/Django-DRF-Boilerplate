@@ -94,6 +94,7 @@ plugins = ["mypy_django_plugin.main"]
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "main.django.test"
 python_files = ["test_*.py"]
+pythonpath = ["src/"]
 addopts = """
   --durations=10
   --durations-min=0.1
