@@ -1,7 +1,7 @@
 [project]
 name = "django-app"
 description = "Production ready Django + Django Rest Framework boilerplate application."
-version = "0.5.2"
+version = "0.6.0"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "django-environ>=0.12.0",
